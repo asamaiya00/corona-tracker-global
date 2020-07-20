@@ -16,7 +16,7 @@ const CountryPicker = ({ fetchCountry }) => {
 
   return (
     <FormControl className={styles.formControl}>
-      <NativeSelect style={{ color: "silver" }}
+      <NativeSelect style={{ color: "silver", textAlignLast: "center" }}
         defaultValue=" "
         onChange={(e) => fetchCountry(e.target.value)}
       >
