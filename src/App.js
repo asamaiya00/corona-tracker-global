@@ -3,7 +3,8 @@ import React from 'react';
 import { Cards, Chart, CountryPicker } from './components';
 import styles from './App.module.css';
 import { fetchData } from './api';
-import coronaImg from './images/covid_new.png'
+import coronaImg from './images/covid_new.png';
+import Footer from './components/Footer';
 
 export class App extends React.Component {
   state = {
@@ -27,12 +28,16 @@ export class App extends React.Component {
     const { data, country } = this.state;
 
     return (
-      <div className={styles.container}>
-      <img src={coronaImg} className={styles.image} alt="COVID-19"/>
-      <CountryPicker fetchCountry={this.fetchCountry} />
-        <Cards data={data} />
-        <Chart data={data} country={country} />
-      </div>
+      <React.Fragment>
+        <div className={styles.container}>
+          <img src={coronaImg} className={styles.image} alt="COVID-19" />
+          <CountryPicker fetchCountry={this.fetchCountry} />
+          <Cards data={data} />
+          <Chart data={data} country={country} />
+          <br/>
+        </div>
+        <Footer/>
+      </React.Fragment>
     );
   }
 }
